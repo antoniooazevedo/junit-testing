@@ -30,8 +30,7 @@ public class ListAggregator {
         int max = Integer.MIN_VALUE;
 
         for (Integer number : list)
-            if (number > max)
-                max = number;
+            max = Integer.max(number, max);
 
         return max;
     }
@@ -44,8 +43,7 @@ public class ListAggregator {
         int min = Integer.MAX_VALUE;
 
         for (Integer number : list)
-            if (number < min)
-                min = number;
+            min = Integer.min(number, min);
 
         return min;
     }
