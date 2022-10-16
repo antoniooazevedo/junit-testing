@@ -56,14 +56,6 @@ public class ListAggregator {
      */
     public int distinct(List<Integer> list) {
         ListDeduplicator deduplicator = new ListDeduplicator();
-        class StubListSorter implements GenericListSorter{
-            @Override
-            public List<Integer> sort(List<Integer> list){
-                return Arrays.asList(1,2,2,4);
-            }
-        };
-        StubListSorter sorter = new StubListSorter();
-        ListSorter sorted = new ListSorter();
         List<Integer> distinct = deduplicator.deduplicate(list);
 
         return distinct.size();
