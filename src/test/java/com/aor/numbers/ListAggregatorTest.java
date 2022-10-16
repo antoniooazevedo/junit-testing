@@ -3,6 +3,9 @@ package com.aor.numbers;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+import sun.net.www.content.text.Generic;
+import static org.mockito.Mockito.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -45,7 +48,6 @@ public class ListAggregatorTest {
 
     @Test
     public void distinct() {
-
         ListAggregator aggregator = new ListAggregator();
         int distinct = aggregator.distinct(list);
 
@@ -59,5 +61,13 @@ public class ListAggregatorTest {
         int max = aggregator.max(list);
 
         Assertions.assertEquals(-1, max);
+    }
+
+    @Test
+    public void max_bug_8726() {
+        List<Integer> list = Arrays.asList(1,2,4,2);
+        ListAggregator aggregator = new ListAggregator();
+        int distinct = aggregator.distinct(list);
+        Assertions.assertEquals(3, distinct);
     }
 }

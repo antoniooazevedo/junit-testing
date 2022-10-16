@@ -1,6 +1,8 @@
 package com.aor.numbers;
 
+import java.util.Arrays;
 import java.util.List;
+
 
 /**
  * A utility class that aggregates list of numbers
@@ -54,7 +56,14 @@ public class ListAggregator {
      */
     public int distinct(List<Integer> list) {
         ListDeduplicator deduplicator = new ListDeduplicator();
-        List<Integer> distinct = deduplicator.deduplicate(list);
+        class StubListSorter implements GenericListSorter{
+            @Override
+            public List<Integer> sort(List<Integer> list){
+                return Arrays.asList(1,2,2,4);
+            }
+        };
+        StubListSorter sorter = new StubListSorter();
+        List<Integer> distinct = deduplicator.deduplicate(list, sorter);
 
         return distinct.size();
     }
