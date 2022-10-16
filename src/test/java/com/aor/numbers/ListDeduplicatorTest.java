@@ -22,7 +22,7 @@ public class ListDeduplicatorTest {
 
     @Test
     public void deduplicate() {
-        GenericListSorter sorter = Mockito.mock(GenericListSorter.class);
+        ListSorter sorter = new ListSorter();
         ListDeduplicator deduplicator = new ListDeduplicator();
         List<Integer> distinct = deduplicator.deduplicate(list, sorter);
 
