@@ -3,6 +3,7 @@ package com.aor.numbers;
 import com.sun.tools.javac.jvm.Gen;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -17,19 +18,17 @@ public class ListDeduplicator{
      * but withou duplicates. The order of the numbers might
      * change.
      */
-    public List<Integer> deduplicate(List<Integer> list, GenericListSorter sorter) {
-        //ListSorter listSorter = new ListSorter();
+    public List<Integer> deduplicate(List<Integer> list) {
+        ListSorter sorter = new ListSorter();
         List<Integer> sorted = sorter.sort(list);
         List<Integer> unique = new ArrayList<>();
-
         Integer last = null;
-
         for (Integer number : sorted)
             if (!number.equals(last)) {
                 last = number;
                 unique.add(number);
             }
-
         return unique;
     }
+
 }

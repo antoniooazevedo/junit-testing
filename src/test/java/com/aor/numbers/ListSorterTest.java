@@ -32,5 +32,6 @@ public class ListSorterTest {
         list = Arrays.asList(1,2,4,2);
         List<Integer> sorted = sorter.sort(list);
         Assertions.assertEquals(Arrays.asList(1,2,2,4), sorted);
+
     }
 }

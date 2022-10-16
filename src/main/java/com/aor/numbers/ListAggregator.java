@@ -64,7 +64,7 @@ public class ListAggregator {
         };
         StubListSorter sorter = new StubListSorter();
         ListSorter sorted = new ListSorter();
-        List<Integer> distinct = deduplicator.deduplicate(list, sorted);
+        List<Integer> distinct = deduplicator.deduplicate(list);
 
         return distinct.size();
     }

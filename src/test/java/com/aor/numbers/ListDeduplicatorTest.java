@@ -24,8 +24,7 @@ public class ListDeduplicatorTest {
     public void deduplicate() {
         ListSorter sorter = new ListSorter();
         ListDeduplicator deduplicator = new ListDeduplicator();
-        List<Integer> distinct = deduplicator.deduplicate(list, sorter);
-
+        List<Integer> distinct = deduplicator.deduplicate(list);
         Assertions.assertEquals(expected, distinct);
     }
 
@@ -34,7 +33,7 @@ public class ListDeduplicatorTest {
         ListDeduplicator deduplicator = new ListDeduplicator();
         GenericListSorter sorter = Mockito.mock(GenericListSorter.class);
         Mockito.when(sorter.sort(Mockito.anyList())).thenReturn(Arrays.asList(1,2,2,4));
-        List<Integer> distinct = deduplicator.deduplicate(list, sorter);
+        List<Integer> distinct = deduplicator.deduplicate(Arrays.asList(1,2,4,2));
 
         Assertions.assertEquals(Arrays.asList(1,2,4), distinct);
     }
