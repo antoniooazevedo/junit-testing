@@ -6,7 +6,12 @@ public class DivisibleByFilter implements GenericListFilter{
         n = number;
     }
 
-    public boolean accept(Integer number){
-        return (number % n == 0);
+    public boolean accept(Integer number) throws ArithmeticException{
+        try {
+            return (number % n == 0);
+        }
+        catch (ArithmeticException exception){
+            return false;
+        }
     }
 }

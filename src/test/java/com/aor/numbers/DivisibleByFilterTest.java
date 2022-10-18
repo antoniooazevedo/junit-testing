@@ -18,4 +18,12 @@ public class DivisibleByFilterTest {
         Assertions.assertTrue(filter.accept(i1));
         Assertions.assertFalse(filter.accept(i2));
     }
+
+    @Test
+    public void dividing_by_zero(){
+        DivisibleByFilter filter = new DivisibleByFilter(0);
+        Integer i = 24712471;
+
+        Assertions.assertFalse(filter.accept(i));
+    }
 }
